@@ -1,34 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | Blog preview card</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    @font-face {
+      font-family: Figtree-ExtraBold;
+      src: url('/assets/fonts/static/Figtree-ExtraBold.ttf');
+    }
+
+    @font-face {
+      font-family: Figtree-Medium;
+      src: url('/assets//fonts/static/Figtree-Medium.ttf');
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --text-primary-color: hsl(0, 0%, 7%);
+      --text-secondry-color: hsl(0, 0%, 42%);
+      --bg-primary-color: hsl(47, 88%, 63%);
+      --bg-secondry-color: hsl(0, 0%, 100%);
+    }
+
+    main {
+      background: var(--bg-primary-color);
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .blog-preview-card {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+      padding: 15px;
+      border: 1px solid var(--text-primary-color);
+      border-radius: 15px;
+      background: var(--bg-secondry-color);
+      row-gap: 15px;
+      box-shadow: 5px 5px var(--text-primary-color);
+
+      @media screen and (max-width: 375px) {
+        width: 85%;
+        row-gap: 20px;
+        padding: 20px;
+      }
+
+      >img {
+        border-radius: 10px;
+      }
+
+      .learning-published {
+        >button {
+          width: 65px;
+          padding-block: 4px;
+          border-radius: 4px;
+          border: none;
+          background: var(--bg-primary-color);
+          color: var(--text-primary-color);
+          font-family: 'Figtree-ExtraBold';
+          font-size: .7rem;
+          margin-bottom: 12px;
+
+          @media screen and (max-width: 375px) {
+            font-size: .8rem;
+            padding-block: 8px;
+            width: 70px;
+            margin-bottom: 14px;
+          }
+        }
+
+        >.published {
+          font-family: 'Figtree-Medium';
+          font-size: .7rem;
+          color: var(--text-primary-color);
+
+          @media screen and (max-width: 375px) {
+            font-size: .8rem;
+          }
+        }
+      }
+
+      .title {
+        font-family: 'Figtree-ExtraBold';
+        font-size: 1.2rem;
+
+        &:hover {
+          color: var(--bg-primary-color);
+          cursor: pointer;
+        }
+      }
+
+      .description {
+        font-family: 'Figtree-Medium';
+        font-size: .8rem;
+        color: var(--text-secondry-color);
+      }
+
+      .blogged-by {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-block: 5px;
+
+        .blogged-by-avatar {
+          width: 25px;
+          /* height: 10px; */
+        }
+
+        span {
+          font-family: 'Figtree-ExtraBold';
+          font-size: .7rem;
+        }
+      }
+    }
   </style>
 </head>
+
 <body>
-
-  Learning
-
-  Published 21 Dec 2023
-
-  HTML & CSS foundations
-
-  These languages are the backbone of every website, defining structure, content, and presentation.
-
-  Greg Hooper
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <main>
+    <div class="blog-preview-card">
+      <img src="/assets/images/illustration-article.svg" />
+      <div class="learning-published">
+        <button>Learning</button>
+        <p class="published">Published <time class="date" datetime="2023-12-21">21 Dec 2023</time></p>
+      </div>
+      <h1 class="title">HTML & CSS foundations</h1>
+      <p class="description">These languages are the backbone of every website, defining structure, content, and
+        presentation.</p>
+      <div class="blogged-by">
+        <img class="blogged-by-avatar" src="/assets/images/image-avatar.webp" />
+        <span itemprop="name">Greg Hooper</span>
+      </div>
+    </div>
+  </main>
 </body>
+
 </html>
